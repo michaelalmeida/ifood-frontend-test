@@ -2,7 +2,7 @@ import React from 'react';
 
 import { H1 } from '../style/titles/Titles';
 
-const Header = ({ isAuth }) => {
+const Header = () => {
     return !isAuth ? (
         <H1 center>
             Hey, welcome! How about listening a music while you enjoy your meal? Please, just

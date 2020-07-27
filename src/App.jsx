@@ -1,13 +1,17 @@
 import React from 'react';
 
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import GlobalStyles from './components/style/globalStyle';
 import { Container } from './components/style/container/Container';
 
 import Login from './components/Login/Login';
 import HomePage from './components/HomePage/HomePage';
 
-function App({ userToken }) {
+function App() {
+    const userToken = useSelector((state) => state.userToken);
+
     return (
         <Container>
             <GlobalStyles />
