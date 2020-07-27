@@ -17,7 +17,7 @@ const Playlist = () => {
     return playlists ? (
         <InnerContainer>
             {playlists.map((list) => (
-                <li>{list.name}</li>
+                <li key={list.uri}>{list.name}</li>
             ))}
         </InnerContainer>
     ) : (
