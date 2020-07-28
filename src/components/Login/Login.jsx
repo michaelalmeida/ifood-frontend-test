@@ -10,6 +10,9 @@ import hash from '../../utils/getHash';
 
 import { InnerContainer } from '../style/container/Container';
 import Button from '../style/button/Button';
+import SelectInput from '../style/input/SelectInput';
+import NumberInput from '../style/input/NumberInput';
+import DateTimeInput from '../style/input/DateTimeInput';
 
 const Login = () => {
     const userToken = useSelector((state) => state.userToken);
@@ -23,11 +26,49 @@ const Login = () => {
             {userToken ? (
                 <Redirect to="/" />
             ) : (
-                <Button
-                    isLink
-                    href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true`}>
-                    Logar
-                </Button>
+                <>
+                    <Button
+                        isLink
+                        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true`}>
+                        Logar
+                    </Button>
+                    <DateTimeInput />
+                    <NumberInput
+                        id="limit"
+                        name="Quantidade"
+                        validation={{ primitiveType: 'INTEGER', min: 1, max: 50 }}
+                    />
+                    <SelectInput
+                        id="country"
+                        name="País"
+                        values={[
+                            {
+                                value: 'AU',
+                                name: 'Australia',
+                            },
+                            {
+                                value: 'DE',
+                                name: 'Alemanhã',
+                            },
+                            {
+                                value: 'BR',
+                                name: 'Brasil',
+                            },
+                            {
+                                value: 'PT',
+                                name: 'Portugal',
+                            },
+                            {
+                                value: 'en_US',
+                                name: 'EUA',
+                            },
+                            {
+                                value: 'RU',
+                                name: 'Rússia',
+                            },
+                        ]}
+                    />
+                </>
             )}
         </InnerContainer>
     );
