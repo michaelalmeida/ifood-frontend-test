@@ -1,14 +1,14 @@
 import { SET_FILTERS } from './types';
 
 export const initialState = {
-    filters: [],
+    filterList: [],
 };
 
-const filterReducer = (state = initialState, { type, filters }) => {
+const filterReducer = (state = initialState, { type, filterList }) => {
     if (type === SET_FILTERS) {
         return {
             ...state,
-            filters,
+            filterList,
         };
     }
 

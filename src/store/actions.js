@@ -16,10 +16,10 @@ export const setPlaylist = (playlists) => {
     };
 };
 
-export const setFilters = (filters) => {
+export const setFilters = (filterList) => {
     return {
         type: SET_FILTERS,
-        filters,
+        filterList,
     };
 };
 
@@ -43,7 +43,7 @@ export const getFilters = () => {
         axios
             .get('http://www.mocky.io/v2/5a25fade2e0000213aa90776')
             .then((res) => {
-                dispatch(setPlaylist(res.data.filters));
+                dispatch(setFilters(res.data.filters));
             })
             .catch((err) => err);
     };

@@ -1,16 +1,17 @@
-import styled from 'styled-components'
-import { white } from '../colors'
+import styled from 'styled-components';
+import { white } from '../colors';
 
 export const Container = styled.div`
     margin: 60px auto;
     display: flex;
-    width: ${(props) => props.width || '1024px'};
+    padding: 20px;
+    width: ${(props) => props.width || '920px'};
     background: ${(props) => (props.background ? white : 'none')};
 
     @media (max-width: 1024px) {
-        width: 100%;
+        width: calc(100% - 40px);
     }
-`
+`;
 
 export const InnerContainer = styled.div`
     display: flex;
@@ -26,4 +27,4 @@ export const InnerContainer = styled.div`
     @media (max-width: 1024px) {
         width: 100%;
     }
-`
+`;

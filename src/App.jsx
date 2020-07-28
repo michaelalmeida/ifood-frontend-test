@@ -6,15 +6,18 @@ import { useSelector } from 'react-redux';
 import GlobalStyles from './components/style/globalStyle';
 import { Container } from './components/style/container/Container';
 
+import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 import HomePage from './components/HomePage/HomePage';
 
 function App() {
     const userToken = useSelector(({ spotify }) => spotify.userToken);
+    const isAuth = !!userToken;
 
     return (
-        <Container>
+        <Container background>
             <GlobalStyles />
+            <Header isAuth={isAuth} />
             <Router>
                 <Switch>
                     <Route exact path="/login/" component={Login} />
