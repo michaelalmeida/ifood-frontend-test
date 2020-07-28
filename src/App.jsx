@@ -10,7 +10,7 @@ import Login from './components/Login/Login';
 import HomePage from './components/HomePage/HomePage';
 
 function App() {
-    const userToken = useSelector((state) => state.userToken);
+    const userToken = useSelector(({ spotify }) => spotify.userToken);
 
     return (
         <Container>

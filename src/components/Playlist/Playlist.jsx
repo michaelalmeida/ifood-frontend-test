@@ -6,8 +6,8 @@ import { getPlaylists } from '../../store/actions';
 import { InnerContainer } from '../style/container/Container';
 
 const Playlist = () => {
-    const userToken = useSelector((state) => state.userToken);
-    const playlists = useSelector((state) => state.playlists);
+    const userToken = useSelector(({ spotify }) => spotify.userToken);
+    const playlists = useSelector(({ spotify }) => spotify.playlists);
     const dispatch = useDispatch();
 
     useEffect(() => {

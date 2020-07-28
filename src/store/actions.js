@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { AUTH_USER, SET_PLAYLISTS } from './types';
+import { AUTH_USER, SET_PLAYLISTS, SET_FILTERS } from './types';
 
 export const authUser = (userToken) => {
     return {
@@ -16,6 +16,13 @@ export const setPlaylist = (playlists) => {
     };
 };
 
+export const setFilters = (filters) => {
+    return {
+        type: SET_FILTERS,
+        filters,
+    };
+};
+
 export const getPlaylists = ({ userToken }) => {
     return (dispatch) => {
         axios
@@ -26,6 +33,17 @@ export const getPlaylists = ({ userToken }) => {
             })
             .then((res) => {
                 dispatch(setPlaylist(res.data.playlists.items));
+            })
+            .catch((err) => err);
+    };
+};
+
+export const getFilters = () => {
+    return (dispatch) => {
+        axios
+            .get('http://www.mocky.io/v2/5a25fade2e0000213aa90776')
+            .then((res) => {
+                dispatch(setPlaylist(res.data.filters));
             })
             .catch((err) => err);
     };
