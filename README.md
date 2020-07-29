@@ -3,9 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/v/react-router?style=flat-square"></a>
-  <a href="https://www.npmjs.com/package/react-router"><img src="https://img.shields.io/npm/dm/react-router?style=flat-square"></a>
-  <a href="https://travis-ci.com/ReactTraining/react-router"><img src="https://img.shields.io/travis/com/ReactTraining/react-router/master?style=flat-square"></a>
+  ![iFood test application Printscreen](https://i.ibb.co/9cmTnrq/ifoodtest.png "iFood test application Printscreen")
 </p>
 
 ## Installation
