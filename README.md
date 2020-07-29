@@ -40,7 +40,7 @@ Runs the app in the development mode. Open http://localhost:3000 to view it in t
 
 ## Main Stack
 
-| `Package`        | Description                                           |
+| Package          | Description                                           |
 | ---------------- | ----------------------------------------------------- |
 | React            | A JavaScript library for building user interfaces     |
 | Redux            | A Predictable State Container for JS Apps             |
