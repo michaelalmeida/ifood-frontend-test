@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 
-import { Select, InputNumber, DatePicker } from 'antd';
+import PropTypes from 'prop-types';
+import { notification, Select, InputNumber, DatePicker } from 'antd';
 
 const { Option } = Select;
 
-const FilterInput = ({ type, id, name, values, validation }) => {
-    function onChange(value) {
-        console.log(`selected ${value}`);
+const FilterInput = ({ type, filterFields, onChange, id, name, values, validation }) => {
+    function openNotification(notificationType, fieldName, value) {
+        notification[notificationType]({
+            message: 'Valor não aceito',
+            description: `${value} não é aceito no campo ${fieldName}.`,
+            duration: 4,
+        });
+    }
+    function onChangeHandler(value) {
+        if (value < validation.min || value > validation.max) {
+            openNotification('error', name, value);
+        } else {
+            onChange({ ...filterFields, [id]: value });
+        }
     }
 
-    function onChangeForDateString(value, dateString = '') {
-        console.log(value, dateString);
-    }
-    function onSearch(val) {
-        console.log('search:', val);
+    function onChangeHandlerForDateString(_value, dateString = '') {
+        const dateTimeStamp = dateString.replace(' ', 'T');
+        onChange({ ...filterFields, [id]: dateTimeStamp });
     }
 
     switch (type) {
@@ -22,11 +32,9 @@ const FilterInput = ({ type, id, name, values, validation }) => {
             return (
                 <Select
                     showSearch
-                    style={{ width: 200 }}
-                    placeholder="Selecione"
+                    placeholder={name}
                     optionFilterProp="children"
-                    onChange={onChange}
-                    onSearch={onSearch}
+                    onChange={onChangeHandler}
                     filterOption={(input, option) =>
                         option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }>
@@ -40,16 +48,16 @@ const FilterInput = ({ type, id, name, values, validation }) => {
         case 'number':
             return (
                 <InputNumber
+                    placeholder={name}
                     min={validation.min || 0}
                     max={validation.max || undefined}
-                    defaultValue={3}
-                    onChange={onChange}
+                    onChange={onChangeHandler}
                 />
             );
         case 'datetime':
             return (
                 <DatePicker
-                    onChange={onChangeForDateString}
+                    onChange={onChangeHandlerForDateString}
                     format="YYYY-MM-DD HH:mm:ss"
                     showTime={{
                         hideDisabledOptions: true,
@@ -59,8 +67,28 @@ const FilterInput = ({ type, id, name, values, validation }) => {
             );
 
         default:
-            return <>Nenhum dado</>;
+            return <> </>;
     }
+};
+
+FilterInput.propTypes = {
+    type: PropTypes.string.isRequired,
+    filterFields: PropTypes.objectOf(PropTypes.any).isRequired,
+    onChange: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    values: PropTypes.arrayOf(
+        PropTypes.shape({
+            value: PropTypes.string,
+            name: PropTypes.string,
+        })
+    ),
+    validation: PropTypes.objectOf(PropTypes.any),
+};
+
+FilterInput.defaultProps = {
+    values: [],
+    validation: {},
 };
 
 export default FilterInput;

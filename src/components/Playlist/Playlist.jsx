@@ -24,11 +24,12 @@ const Playlist = () => {
                     description={list.description}
                     owner={list.owner}
                     images={list.images}
+                    uri={list.uri}
                 />
             ))}
         </PlaylistContainer>
     ) : (
-        <InnerContainer>Teste2</InnerContainer>
+        <InnerContainer>Nenhuma Playlist encontrada</InnerContainer>
     );
 };
 

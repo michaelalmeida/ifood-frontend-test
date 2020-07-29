@@ -11,8 +11,8 @@ const Header = ({ isAuth }) => {
     return !isAuth ? (
         <InnerContainer>
             <H1 center>
-                Hey, welcome! How about listening a music while you enjoy your meal? Please, just
-                authenticate your Spotify user
+                Hey, que tal ouvir uma música enquanto aguarda o seu pedido ou aproveita sua
+                refeição? Entre com seu usuário do Spotify :)
             </H1>
         </InnerContainer>
     ) : (

@@ -1,4 +1,4 @@
-export const mainColor = '#E0AE63';
+export const mainColor = '#EA1D2C';
 
 export const background = '#eeeeee ';
 
@@ -14,7 +14,7 @@ export const randomColors = {
     4: '#DFB0B3',
     5: '#887B9A',
     6: '#FD6025',
-    7: '#1D191A',
+    7: '#615c5d',
     8: '#881C35',
     9: '#583B57',
 };

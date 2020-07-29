@@ -23,10 +23,10 @@ export const setFilters = (filterList) => {
     };
 };
 
-export const getPlaylists = ({ userToken }) => {
+export const getPlaylists = ({ userToken, optionalParameters = '' }) => {
     return (dispatch) => {
         axios
-            .get('https://api.spotify.com/v1/browse/featured-playlists', {
+            .get(`https://api.spotify.com/v1/browse/featured-playlists${optionalParameters}`, {
                 headers: {
                     Authorization: `Bearer ${userToken}`,
                 },
