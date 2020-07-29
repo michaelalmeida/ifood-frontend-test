@@ -27,7 +27,7 @@ $ npm install
 After finish the previous step ([installation](#installation)) , you can start the project:
 
 ```bash
-$ npm start  # Start the development server (or `npm start`)
+$ npm start
 ```
 
 Runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
@@ -40,7 +40,7 @@ Runs the app in the development mode. Open http://localhost:3000 to view it in t
 
 ## Main Stack
 
-| `npm <script>`   | Description                                           |
+| `Package`        | Description                                           |
 | ---------------- | ----------------------------------------------------- |
 | React            | A JavaScript library for building user interfaces     |
 | Redux            | A Predictable State Container for JS Apps             |
