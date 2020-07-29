@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  ![iFood test application Printscreen](https://i.ibb.co/9cmTnrq/ifoodtest.png "iFood test application Printscreen")
+![](https://i.ibb.co/9cmTnrq/ifoodtest.png)
 </p>
 
 ## Installation
