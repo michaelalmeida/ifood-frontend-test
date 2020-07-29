@@ -9,7 +9,7 @@ import { randomColors, mainColor, white, black } from '../style/colors';
 export const Card = styled.div`
     position: relative;
     width: 200px;
-    height: 200px;
+    height: 350px;
     display: flex;
     flex: 0 1 auto;
     align-content: flex-start;
@@ -28,8 +28,9 @@ export const Card = styled.div`
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         width: 100%;
+        height: 120px;
 
         div {
             margin-right: 0;
@@ -38,31 +39,32 @@ export const Card = styled.div`
 `;
 
 export const CardImage = styled.div`
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     background: url(${(props) =>
-        props.backgroundImage || 'https://dummyimage.com/80x80/000/fff&text=x'});
+        props.backgroundImage || 'https://dummyimage.com/200x200/000/fff&text=x'});
     background-repeat: no-repeat;
-    background-size: 80px 80px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    opacity: 0.6;
+    background-size: 160px 160px;
 
-    @media (max-width: 1024px) {
-        opacity: 1;
+    @media (max-width: 960px) {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 80px;
+        height: 80px;
+        background-size: 80px 80px;
     }
 `;
 
 export const Name = styled.h1`
     font-family: 'Oswald', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
     text-align: right;
     color: ${white};
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         padding-left: 60px;
     }
 `;
@@ -79,12 +81,16 @@ export const Description = styled.p`
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 12px;
     color: ${white};
+
+    @media (max-width: 960px) {
+        padding-left: 100px;
+    }
 `;
 
 export const Link = styled.a`
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 150px;
+    right: 20px;
     padding: 5px;
     margin-top: 5px;
     font-family: 'Oswald', sans-serif;
@@ -92,6 +98,12 @@ export const Link = styled.a`
     font-weight: 700;
     text-transform: uppercase;
     color: ${white};
+    background: ${black};
+
+    @media (max-width: 960px) {
+        top: 90px;
+        right: 0;
+    }
 `;
 
 const PlayListCard = ({ name, description, owner, images, uri }) => {

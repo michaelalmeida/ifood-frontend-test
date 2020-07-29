@@ -32,7 +32,7 @@ export const Bar = styled.div`
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         flex-flow: column nowrap;
 
         div {

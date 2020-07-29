@@ -10,7 +10,7 @@ export const Container = styled.div`
     width: ${(props) => props.width || '920px'};
     background: ${(props) => (props.background ? white : 'none')};
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         width: calc(100% - 40px);
     }
 `;
@@ -25,7 +25,7 @@ export const InnerContainer = styled.div`
     width: ${(props) => props.width || '100%'};
     background: ${(props) => (props.background ? white : 'none')};
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         width: 100%;
     }
 `;
@@ -40,7 +40,7 @@ export const PlaylistContainer = styled.div`
     justify-content: space-between;
     width: 100%;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
         flex-direction: column;
     }
 `;
