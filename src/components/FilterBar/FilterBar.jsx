@@ -1,24 +1,72 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { getFilters as getFiltersAction } from '../../store/actions';
 
 import FilterManager from './FilterManager';
+import FilterInput from './FilterInput';
 
-import { InnerContainer } from '../style/container/Container';
+import { mainColor } from '../style/colors';
+
+export const Bar = styled.div`
+    display: flex;
+    flex: 0 1 auto;
+    align-content: flex-start;
+    padding: 20px;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    background: ${mainColor};
+
+    div {
+        flex-grow: 1;
+        margin-right: 5px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        flex-flow: column nowrap;
+
+        div {
+            margin-right: 0;
+        }
+    }
+`;
 
 const FilterBar = ({ filterList, getFilters }) => {
+    let filterListTypes = [];
+
     useEffect(() => {
         getFilters();
     }, [getFilters]);
 
     if (filterList?.length) {
-        FilterManager({ filterList });
+        filterListTypes = FilterManager({ filterList });
     }
 
-    return <InnerContainer></InnerContainer>;
+    return (
+        <Bar>
+            {filterListTypes?.length && filterList?.length && (
+                <>
+                    {filterList.map((filter, index) => (
+                        <FilterInput
+                            key={filter.id}
+                            type={filterListTypes[index]}
+                            id={filter.id}
+                            name={filter.name}
+                            values={filter.values}
+                            validation={filter.validation}
+                        />
+                    ))}
+                </>
+            )}
+        </Bar>
+    );
 };
 
 FilterBar.propTypes = {

@@ -4,6 +4,8 @@ import { white } from '../colors';
 export const Container = styled.div`
     margin: 60px auto;
     display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     padding: 20px;
     width: ${(props) => props.width || '920px'};
     background: ${(props) => (props.background ? white : 'none')};
@@ -15,16 +17,30 @@ export const Container = styled.div`
 
 export const InnerContainer = styled.div`
     display: flex;
-    margin: 60px auto;
     align-items: center;
     align-content: center;
-    flex-direction: column;
+    flex-wrap: ${(props) => props.flexWrap || 'nowrap'};
+    flex-direction: ${(props) => props.flexDireaction || 'column'};
     justify-content: space-between;
     width: ${(props) => props.width || '100%'};
-    min-height: 200px;
     background: ${(props) => (props.background ? white : 'none')};
 
     @media (max-width: 1024px) {
         width: 100%;
+    }
+`;
+
+export const PlaylistContainer = styled.div`
+    margin: 20px 0 -20px 0;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
     }
 `;

@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getPlaylists } from '../../store/actions';
 
-import { InnerContainer } from '../style/container/Container';
+import PlayListCard from './PlaylistCard';
+import { InnerContainer, PlaylistContainer } from '../style/container/Container';
 
 const Playlist = () => {
     const userToken = useSelector(({ spotify }) => spotify.userToken);
@@ -15,11 +16,17 @@ const Playlist = () => {
     }, [dispatch, userToken]);
 
     return playlists ? (
-        <InnerContainer>
+        <PlaylistContainer>
             {playlists.map((list) => (
-                <li key={list.uri}>{list.name}</li>
+                <PlayListCard
+                    key={list.uri}
+                    name={list.name}
+                    description={list.description}
+                    owner={list.owner}
+                    images={list.images}
+                />
             ))}
-        </InnerContainer>
+        </PlaylistContainer>
     ) : (
         <InnerContainer>Teste2</InnerContainer>
     );

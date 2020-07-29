@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import 'antd/dist/antd.css';
 import GlobalStyles from './components/style/globalStyle';
 import { Container } from './components/style/container/Container';
 

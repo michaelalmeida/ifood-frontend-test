@@ -9,27 +9,31 @@ const FILTER_TYPE = Object.freeze({
 });
 
 const FilterManager = ({ filterList }) => {
+    const inputTypeList = [];
+
     const hasProperty = (object, property) => {
         return Object.prototype.hasOwnProperty.call(object, property);
     };
-    return filterList.map((filter) => {
+
+    filterList.forEach((filter) => {
         if (hasProperty(filter, FILTER_TYPE.values)) {
-            return console.log('select');
+            inputTypeList.push('select');
         }
         if (hasProperty(filter, FILTER_TYPE.validation)) {
             if (filter.validation.primitiveType === FILTER_TYPE.number) {
-                return console.log('number');
+                inputTypeList.push('number');
             }
             if (filter.validation.primitiveType === FILTER_TYPE.text) {
                 if (filter.validation.entityType === FILTER_TYPE.datetime) {
-                    return console.log('date');
+                    inputTypeList.push('datetime');
+                } else {
+                    inputTypeList.push('text');
                 }
-                return console.log('text');
             }
         }
-
-        return console.log('nada');
     });
+
+    return inputTypeList;
 };
 
 FilterManager.propTypes = {
