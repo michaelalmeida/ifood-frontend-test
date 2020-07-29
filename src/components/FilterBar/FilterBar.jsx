@@ -62,6 +62,15 @@ const FilterBar = ({ userToken, filterList, getFilters, getPlaylists }) => {
         const optionalParameters = `?country=${country}&locale=${locale}&timestamp=${timestamp}&limit=${limit}&offset=${offset}`;
 
         getPlaylists({ userToken, optionalParameters });
+
+        const callWithTimer = setInterval(
+            () => getPlaylists({ userToken, optionalParameters }),
+            30000
+        );
+
+        return () => {
+            clearInterval(callWithTimer);
+        };
     }, [filterFields, userToken, getPlaylists]);
 
     if (filterList?.length) {
