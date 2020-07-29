@@ -3,7 +3,8 @@
 </h1>
 
 <p align="center">
-![](https://i.ibb.co/9cmTnrq/ifoodtest.png)
+<img src="https://i.ibb.co/9cmTnrq/ifoodtest.png" alt="iFood test application">
+
 </p>
 
 ## Installation
