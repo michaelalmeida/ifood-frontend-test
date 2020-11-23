@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom';
 
 import { authUser as authUserAction } from '../../store/actions';
 
-import { authEndpoint, clientId, redirectUri } from '../../utils/config';
 import hash from '../../utils/getHash';
 
 import { InnerContainer } from '../style/container/Container';
@@ -26,7 +25,7 @@ const Login = ({ userToken, authUser }) => {
                 <>
                     <Button
                         isLink
-                        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&show_dialog=true`}>
+                        href={`${process.env.REACT_APP_SPOTIFY_API}?client_id=${process.env.REACT_APP_CLIENTID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true`}>
                         Logar
                     </Button>
                 </>
