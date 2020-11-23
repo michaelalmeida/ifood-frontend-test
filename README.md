@@ -38,6 +38,14 @@ Runs the app in the development mode. Open http://localhost:3000 to view it in t
 | `build`        | Builds the application              |
 | `test`         | Runs unit tests                     |
 
+### Configure your local env variables
+
+| Variable                 | Value                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| `REACT_APP_SPOTIFY_API`  | The URL of Spotify API (Usually https://accounts.spotify.com/authorize)        |
+| `REACT_APP_CLIENTID`     | You can get a Client ID registering a project on Spotify Developers' Dashboard |
+| `REACT_APP_REDIRECT_URL` | If you are running locally, probably http://localhost:3000/login/              |
+
 ## Main Stack
 
 | Package          | Description                                           |
